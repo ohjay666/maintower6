@@ -5,11 +5,12 @@ using UnityEngine;
 public class printTime : MonoBehaviour
 {
     public GameObject OverlayTextObject;
-    private OverlayText text;
+    public OverlayText text;
     // Start is called before the first frame update
     void Start()
     {
         text = OverlayTextObject.GetComponent<OverlayText>();
+        d.l("Start Timer");
     }
 
     // Update is called once per frame
@@ -18,6 +19,10 @@ public class printTime : MonoBehaviour
         float timeElapsed = Time.time;  // Time since game started in seconds
         System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(timeElapsed);
         string formattedTime = timeSpan.ToString(@"hh\:mm\:ss");
-        text.set(formattedTime);
+        if (text.get() != formattedTime)
+        {
+            text.set(formattedTime);
+            d.l($"Set Time to: {formattedTime}");
+        }
     }
 }

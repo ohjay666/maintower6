@@ -22,7 +22,7 @@ public class XROriginManager : MonoBehaviour
         if (trackedImageActive.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
         {
             Vector3 worldPosition = xrOrigin.transform.TransformPoint(trackedImageActive.transform.localPosition);
-            l.g($"🔹 Tracked Image: {trackedImageActive.referenceImage.name}, Position: {worldPosition}");
+            d.l($"🔹 Tracked Image: {trackedImageActive.referenceImage.name}, Position: {worldPosition}");
             // Call your custom positioning logic here
             OnImageTracked();
         }
@@ -48,7 +48,7 @@ public class XROriginManager : MonoBehaviour
         Quaternion rotationOffset = virtualTargetRotation * Quaternion.Inverse(refinedAvgRot);
         xrOrigin.transform.rotation = rotationOffset * xrOrigin.transform.rotation;
 
-        l.g($"XR Origin repositioned and rotated to match tracked image. Position Offset: {positionOffset}, Rotation Offset: {rotationOffset.eulerAngles}");
+        d.l($"XR Origin repositioned and rotated to match tracked image. Position Offset: {positionOffset}, Rotation Offset: {rotationOffset.eulerAngles}");
     }
     private List<(Vector3 position, Quaternion rotation)> scans = new List<(Vector3, Quaternion)>();
 
@@ -96,7 +96,7 @@ public class XROriginManager : MonoBehaviour
     private void ResetScans()
     {
         scans.Clear();
-        l.g("Scan list reset after 3 seconds.");
+        d.l("Scan list reset after 3 seconds.");
         dbg.set($"ready for next scan");
     }
 

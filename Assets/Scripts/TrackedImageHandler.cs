@@ -5,10 +5,17 @@ using UnityEngine.XR.ARSubsystems;
 
 public class TrackedImageHandler : MonoBehaviour
 {
+    public OverlayText dbg;
     [SerializeField] private ARTrackedImageManager trackedImageManager;
 
     private readonly Dictionary<TrackableId, ARTrackedImage> trackedImages = new();
-
+    private void Start()
+    {
+        dbg.set("Hallöle");
+        Debug.Log("§: Blllah");
+        d.l("Hallo Welt");
+        d.Log($"Start: {trackedImageManager.trackables}");
+    }
     private void Update()
     {
         if (trackedImageManager == null) return;
@@ -18,7 +25,7 @@ public class TrackedImageHandler : MonoBehaviour
             if (!trackedImages.ContainsKey(trackedImage.trackableId))
             {
                 // This is a newly detected image
-                Debug.Log($"Added: {trackedImage.referenceImage.name} at {trackedImage.transform.position}");
+                d.Log($"Added: {trackedImage.referenceImage.name} at {trackedImage.transform.position}");
                 trackedImages[trackedImage.trackableId] = trackedImage;
             }
             else
@@ -26,7 +33,7 @@ public class TrackedImageHandler : MonoBehaviour
                 // Check if it has changed
                 if (trackedImages[trackedImage.trackableId].transform.position != trackedImage.transform.position)
                 {
-                    Debug.Log($"Updated: {trackedImage.referenceImage.name} at {trackedImage.transform.position}");
+                    d.Log($"Updated: {trackedImage.referenceImage.name} at {trackedImage.transform.position}");
                     trackedImages[trackedImage.trackableId] = trackedImage;
                 }
             }
@@ -36,9 +43,9 @@ public class TrackedImageHandler : MonoBehaviour
         List<TrackableId> toRemove = new();
         foreach (var id in trackedImages.Keys)
         {
-            if (!trackedImageManager.trackables.Contains(id))
+            if (!trackedImageManager.trackables.TryGetTrackable(id, out var trackedImage))
             {
-                Debug.Log($"Removed: {trackedImages[id].referenceImage.name}");
+                d.Log($"Removed: {trackedImages[id].referenceImage.name}");
                 toRemove.Add(id);
             }
         }

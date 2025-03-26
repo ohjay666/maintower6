@@ -13,9 +13,7 @@ public class OverlayText : MonoBehaviour
 
     void Start()
     {
-        legacyText = gameObject.GetComponent<Text>();
         tmText = gameObject.GetComponent<TextMeshProUGUI>();
-
     }
 
     public void set(object newText)
@@ -23,27 +21,29 @@ public class OverlayText : MonoBehaviour
         text = "" + newText;
         output();
     }
+    public string get()
+    {
+        return tmText.text;
+    }
+
     public void ln(object appendText)
     {
-        if(text is null){
+        if (text is null)
+        {
             text = "";
         }
         text += "\n" + appendText;
         output();
     }
-    public void round(float number,int digits = 0){
-        ln(Math.Round(number,digits));
+    public void round(float number, int digits = 0)
+    {
+        ln(Math.Round(number, digits));
     }
     private void output()
     {
-        if (legacyText != null)
-        {
-            legacyText.text = text;
-        }
-        if (tmText != null)
-        {
-            tmText.text = text;
-        }
+
+        tmText.text = text;
+
     }
 
 }
