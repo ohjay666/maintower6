@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 4911990521522930206
+  m_GuidHigh: 17860274878480172675
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 4899366958745428685
+      m_GuidHigh: 1860252261369281695
+    m_SerializedTextureGuid:
+      m_GuidLow: 10706449581278715318
+      m_GuidHigh: 7281500660547000665
+    m_Size: {x: 0.2, y: 0.33303964}
+    m_SpecifySize: 1
+    m_Name: mob_qrjx_0.svg
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5591378681524411034
+      m_GuidHigh: 6004119238825867145
+    m_SerializedTextureGuid:
+      m_GuidLow: 7679887703122571798
+      m_GuidHigh: 2682360963635022251
+    m_Size: {x: 0.2, y: 0.33303964}
+    m_SpecifySize: 1
+    m_Name: mob_qrjx_1.svg
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4689147223100330166
+      m_GuidHigh: 12871404951268395967
+    m_SerializedTextureGuid:
+      m_GuidLow: 5959533488738227353
+      m_GuidHigh: 12393565244344419593
+    m_Size: {x: 0.2, y: 0.33303964}
+    m_SpecifySize: 1
+    m_Name: mob_qrjx_23.svg
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5052522257889974784
+      m_GuidHigh: 15616872450645062293
+    m_SerializedTextureGuid:
+      m_GuidLow: 17304053367174711730
+      m_GuidHigh: 3731425496119125577
+    m_Size: {x: 0.2, y: 0.33303964}
+    m_SpecifySize: 1
+    m_Name: mob_qrjx_31.svg
+    m_Texture: {fileID: 0}
