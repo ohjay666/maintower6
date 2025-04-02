@@ -12,8 +12,6 @@ public class TrackedImageHandler : MonoBehaviour
     private void Start()
     {
         dbg.set("Hallöle");
-        Debug.Log("§: Blllah");
-        d.l("Hallo Welt");
         d.Log($"Start: {trackedImageManager.trackables}");
     }
     private void Update()
@@ -22,20 +20,19 @@ public class TrackedImageHandler : MonoBehaviour
 
         foreach (var trackedImage in trackedImageManager.trackables)
         {
+
             if (!trackedImages.ContainsKey(trackedImage.trackableId))
             {
                 // This is a newly detected image
                 d.Log($"Added: {trackedImage.referenceImage.name} at {trackedImage.transform.position}");
+                dbg.set($"Added: {trackedImage.referenceImage.name}");
                 trackedImages[trackedImage.trackableId] = trackedImage;
             }
-            else
+            // Check if it has changed
+            if (trackedImages[trackedImage.trackableId].transform.position != trackedImage.transform.position)
             {
-                // Check if it has changed
-                if (trackedImages[trackedImage.trackableId].transform.position != trackedImage.transform.position)
-                {
-                    d.Log($"Updated: {trackedImage.referenceImage.name} at {trackedImage.transform.position}");
-                    trackedImages[trackedImage.trackableId] = trackedImage;
-                }
+                d.Log($"Updated: {trackedImage.referenceImage.name} at {trackedImage.transform.position}");
+                trackedImages[trackedImage.trackableId] = trackedImage;
             }
         }
 
@@ -45,6 +42,7 @@ public class TrackedImageHandler : MonoBehaviour
         {
             if (!trackedImageManager.trackables.TryGetTrackable(id, out var trackedImage))
             {
+
                 d.Log($"Removed: {trackedImages[id].referenceImage.name}");
                 toRemove.Add(id);
             }

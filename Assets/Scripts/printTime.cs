@@ -22,7 +22,7 @@ public class printTime : MonoBehaviour
         if (text.get() != formattedTime)
         {
             text.set(formattedTime);
-            d.l($"Set Time to: {formattedTime}");
+            // d.l($"Set Time to: {formattedTime}");
         }
     }
 }
